@@ -1,8 +1,0 @@
-<html>
-<title>My first page</title>
-<body>
-<body style="background-color: #FFFF00">
-<h1>516</h1>
-<p>Hello!</p>
-</body>
-</html>
