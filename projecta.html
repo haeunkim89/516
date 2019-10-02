@@ -1,0 +1,17 @@
+<script>
+let min = 1;
+let max = 100;
+
+while (1 == 1) {
+  let number = Math.floor((min + max)/2);
+  let guess = prompt("Is your number " + number + "?");
+  if(guess == "<") {
+    max = number;
+  } else if(guess == ">") {
+    min = number;
+  } else if(guess == "yes") {
+  alert("I won!");
+  break;
+  }
+}
+</script>
