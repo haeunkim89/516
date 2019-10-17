@@ -1,0 +1,56 @@
+<script>
+"use strict";
+let shift = prompt("Enter shift");
+let adjshift = (shift % 26); //the adjusted shift amount = the remainder after dividing the shift value by 26
+let str = prompt("Enter text");
+let cipher = ""; //the encrypted text
+
+for (let i = 0; i < str.length; i++) { //loops until the last position of the string
+  let code = str.charCodeAt(i); //returns ascii code of each position++ of the string
+	if(shift > 0){ 
+		if(code >= 65 && code <= 90) {
+			if((code + adjshift) > 90){ 
+			code = code - 26 
+			}
+			else{
+			}
+			cipher += String.fromCharCode(code + adjshift);
+		}
+		else if(code >= 97 && code <= 122) {
+			if((code + adjshift) > 122){
+			code = code - 26
+			}
+			else{
+			}
+			cipher += String.fromCharCode(code + adjshift);
+		}
+		else {
+			cipher += String.fromCharCode(code);
+		}
+	}
+	else if(shift < 0){
+		if(code >= 65 && code <= 90) {
+			if((code + adjshift) < 65){
+			code = code + 26
+			}
+			else{
+			}
+			cipher += String.fromCharCode(code + adjshift);
+		}
+		else if(code >= 97 && code <= 122) {
+			if((code + adjshift) < 97){
+			code = code + 26
+			}
+			else{
+			}
+			cipher += String.fromCharCode(code + adjshift);
+		}
+		else {
+			cipher += String.fromCharCode(code);
+		}
+	}
+}
+
+alert(cipher)
+
+</script>
