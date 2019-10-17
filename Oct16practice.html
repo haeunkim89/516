@@ -1,0 +1,28 @@
+<script>
+"use strict";
+let students = {"Amy": [75, 76, 74], "Beth": [78, 79, 77], "Cathy": [80,81,79]};
+for(let x in students) {
+  if(students[x] < 77) {
+    alert(x + " is failing")
+  }
+}
+
+#이건 각 학생의 첫번재 숫자만 나오게 하는것
+let students = {"Amy": [75, 76, 74], "Beth": [78, 79, 77], "Cathy": [80,81,79]};
+for(let x in students) {
+  alert(students[x][0])
+}
+
+#평균
+let students = {"Amy": [75, 76, 74], "Beth": [78, 79, 77], "Cathy": [80,81,79]}; 
+for(x in students) {
+  let total = 0;
+  for(grade of students[x]) {
+    total += grade;
+  }
+  if ((total / students[x].length) < 77) {
+    alert(x)
+  }
+}
+
+</script>
