@@ -1,0 +1,15 @@
+<script>
+
+"use strict";
+
+let input = prompt("Enter a sentence."); // input the sentence that you wish to translate into Haigy Paigy
+
+let output = input.replace(/\b(\w*[aeiouyAEIOUY]\w+)(e)\b/g, "$1_"); //silent "e" at the final position, replace with "_"
+
+output = output.replace(/([aeiouyAEIOUY]+)/g, "aig$1"); //adds "aig" before Group 1
+
+output = output.replace(/_\b/g, "e"); //changes the placeholder "_" back to "e"
+
+alert(output);
+
+</script>
