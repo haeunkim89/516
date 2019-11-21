@@ -1,0 +1,42 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+// this function will be invoked when the button is clicked
+function process() {
+
+  // get input text, put it in the variable "x"
+  let input = document.getElementById("input").value;
+  
+  input = input.replace(/[\W]+/g, " ");
+  input = input.toUpperCase();
+  
+  let tokens = input.split(" ");
+  let types = [...new Set(tokens)];
+  let ratio = types.length/tokens.length;
+  
+  let dictionary = {};
+  let count = 0; 
+  
+  for(i = 0; i < types.length; i++) {
+    for(m = 0; m < tokens.length; m++) {
+      if(types[i] == tokens[m]) {
+        count++;
+      }
+    }
+    dictionary[types[i]] = count;
+    count = 0;
+  }
+
+  let newdic = Object.keys(dictionary).sort(function(a, b){return dictionary[b] - dictionary[a]});
+  let output = "";
+  for (let k = 0; k < newdic.length; k++) {
+    output += newdic[k] + " " + dictionary[newdic[k]] + "\n";
+  }
+  document.getElementById("output").value = "Types and frequencies:" + "\n" + output + "Type/Token ratio:" + " " + ratio;
+}
+
+
+
+</script>
