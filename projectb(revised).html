@@ -11,7 +11,7 @@ for (let i = 0; i < str.length; i++) {   //loops until the last position of the 
   code = str.charCodeAt(i);   //returns ascii code of each position of the string
   if (code >= 65 && code <= 90) {
     encrypt(65, 90);
-  } else if (code >= 97 && code <= 127) {
+  } else if (code >= 97 && code <= 122) {
     encrypt(97, 122);
   } else {
     newcode = code;
