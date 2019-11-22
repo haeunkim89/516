@@ -3,15 +3,15 @@
 let shift = prompt("Enter shift");
 let adjshift = (shift % 26);   //the adjusted shift amount = the remainder after dividing the shift value by 26
 let str = prompt("Enter text");
-let code = 0   //original ascii code
-let newcode = 0   //new ascii code after the shift
+let code = 0;   //original ascii code
+let newcode = 0;   //new ascii code after the shift
 let cipher = "";   //the encrypted text
 
 for (let i = 0; i < str.length; i++) {   //loops until the last position of the string
-  code = str.charCodeAt(i);   //returns ascii code of each position++ of the string
+  code = str.charCodeAt(i);   //returns ascii code of each position of the string
   if (code >= 65 && code <= 90) {
     upper();
-  } else if (code >= 97 && code <= 127) {
+  } else if (code >= 97 && code <= 122) {
     lower();
   } else {
     newcode = code;
