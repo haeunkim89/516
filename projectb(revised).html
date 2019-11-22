@@ -23,9 +23,9 @@ alert(cipher);
 function encrypt(x, y){
   newcode = code + adjshift;
   if (newcode < x){
-    newcode = newcode + 26;
+    newcode += 26;
   } else if(newcode > y){
-    newcode = newcode - 26;
+    newcode -= 26;
   }
   return newcode;
 }
