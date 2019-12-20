@@ -1,0 +1,22 @@
+<button id="stimulus" onclick="userClickedButton()" style="display: none; font-size: 72pt;">Click me!</button>
+
+<script>
+
+let stimulusOnsetTime;
+
+function showStimulus() {
+  document.getElementById("stimulus").style.display = "block";
+  stimulusOnsetTime = Date.now();
+}
+
+function userClickedButton() {
+  let responseTime = Date.now();
+  let reaction = responseTime - stimulusOnsetTime;
+  alert("Your reaction time was "+reaction+" ms");
+}
+
+let stimulusDelay = 2000 + Math.random()*5000;
+
+setTimeout(showStimulus, stimulusDelay);
+
+</script>
