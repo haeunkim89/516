@@ -60,7 +60,16 @@
 		output2 += newlist2[p] + "\t" + secondarylist[newlist2[p]] + "\n";
 	  }
 	  
-	  document.getElementById("output").value = "Types and frequencies - Primary Interjections:" + "\n" + output + "\n" + "Types and frequencies - Secondary Interjections:" + "\n" + output2;
+	  let primarytotal = 0
+	  for (let key1 in primarylist) {
+	    primarytotal += primarylist[key1];
+	  }
+	  
+	  let secondarytotal = 0
+	  for (let key2 in secondarylist) {
+	    secondarytotal += secondarylist[key2];
+	  }
+	  document.getElementById("output").value = "Types and Frequencies - Primary Interjections:" + "\n" + output + "\n" + "Types and Frequencies - Secondary Interjections:" + "\n" + output2 + "\n" + "Primary Interjections Total: " + primarytotal + "\n" + "Secondary Interjections Total: " + secondarytotal + "\n" + "Interjections Total: " + (primarytotal+secondarytotal);
 	}
 	</script>
 	
