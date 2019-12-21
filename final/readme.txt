@@ -1,35 +1,46 @@
 A Web-based Text Analysis Tool for Interjections Research
-==========================================================
+=========================================================
 
-description: excel paste column으로 들어간다고 얘기하기
+Made by Haeun Kim (https://github.com/haeunkim89/516/tree/master/final)
 
- Web-based Text Analysis Tool for Interjections Research
-Readme.txt file for Computer Hope created 8/3/2017
-https://www.computerhope.com/
-
-This file is an example of a readme.txt file and something similar to what you might find included with a program or other file you download from the Internet.
-
-Because this file is just an example, there is no need for instructions or further information. However, the typical readme.txt file should include instructions on how to install the program, problems you may encounter, where to find help, FAQ's, copyright information, etc.
+Last updated: 20 December 2019
 
 
-You can find information about readme.txt files and a link to download this file from the link below.
-https://www.computerhope.com/jargon/r/readme.htm
+Description
+-------------
+
+This text analysis tool was developed to help users find interjections in written text more easily (see Ameka 1992 for the definition of interjections). Compared to other word classes such as nouns and verbs, interjections have been rather neglected in linguistic research and have been considered peripheral in theoretical linguistics for a long time (especially in its written form). By providing a tool for interjections research, it is hoped that researchers will benefit from its usefulness and people will become more interested in the use of interjections in written text.
 
 
+How It Works
+-------------
+
+1. Enter your input - Copy and paste your textual data (e.g., story, essay, or any kind of written text) that you wish you analyze into the first textbox.
+
+2. Click on the "submit" button. The program will run and return the following results in the output textbox:
+  (1) the frequency of each individual primary/secondary interjection
+  (2) the total frequency of primary interjections and secondary interjections
+  (3) the total frequency of interejctions
+
+* Note: The individual interjection types and their frequency values are separated by a tab. Therefore, when the output is copied and pasted to a spreadsheet in Excel, the data will be automatically put into columns.
 
 
-The documentation should discuss any and all major limitations of your program that the user should know.
+Limitations
+-------------
 
-- program is syntactically correct: 2 points.
+1. In order to find primary interjections within the text, the program needs a predetermined list of primary interjections (see code line 19 of the program). Currently, the list includes approximately 20 different primary interejctions:
 
-- program has the necessary user documentation: 2 points.
+  let primary = input.match(/\b(no+|oh|oops|hmm|ouch|ah|wow|hurray|yahoo|ow+|ugh|yay|eh|ew+|huh|jeez|sh+|whoa|yep|yo)\b/gi);
 
-- program works correctly per the description: 3 points.
+However, this is not an exhaustive list of primary interjections. Please feel free to change or add more words to the list so that the program suits your research purpose.
 
-- program does not have major undocumented limitations: 3 points.
+2. The way the program detects secondary interjections is by taking the string of words that come before a exclamation mark (see line 42).
 
-limitations
- No exhaustive list of primary interjections -필요한대로 수정해서 쓰라고 얘기하기
- Still requires human judgment - especially for secondary interjections - 원래 얘기하고 잘 판단해서 쓰라하기
- Interjections that end with no punctuation marks (or !이 아닌 다른 punctuation mark가 오는 경우) - 마찬가지
- Cases where an exclamation mark follows a primary interjection 언급하고...
+  let secondary = input.match(/([\w\s]+!)/gi);
+
+Although interjections are most commonly used with exclamation marks, interjections can be used with different types of puctuation marks (such as a comma) or no puctuation mark at all. For these cases, manual coding would be inevitable. In addition, the since the program captures everything that comes with an exclamation mark, there will be instances where it mistakenly returns normal exclamatory sentences as secondary interjections. For the same reason, primary interjections followed by an exclamation mark will be counted as a secondary interjection as well as a primary interejction (counted twice).
+
+The program significantly reduces the time detecting interjections, but human judgment is still required (especially for secondary interjections). When using the program for research, please make sure you understand how the output is calculated and use it accordingly.
+
+
+If you have any questions about the program, please contact Haeun Kim (haeunkim@iastate.edu).
